@@ -9,6 +9,7 @@ export interface Post {
 
 interface PostState {
   posts: Post[];
+  // eslint-disable-next-line no-unused-vars
   setPosts: (posts: Post[]) => void;
 }
 

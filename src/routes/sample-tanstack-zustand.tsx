@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchPosts } from '../lib/api';
-import { usePostStore } from '../lib/store';
-import { useEffect } from 'react';
 import { createFileRoute } from '@tanstack/react-router';
+import { useEffect } from 'react';
+import { fetchPosts } from '../lib/api';
+import type { Post } from '../lib/store';
+import { usePostStore } from '../lib/store';
 
 export const Route = createFileRoute('/sample-tanstack-zustand')({
   component: SampleTanstackZustand,
@@ -30,7 +31,7 @@ function SampleTanstackZustand() {
       {isLoading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>{String(error)}</p>}
       <ul>
-        {data?.map((post: any) => (
+        {data?.map((post: Post) => (
           <li key={post.id}>
             <strong>{post.title}</strong>
             <br />
